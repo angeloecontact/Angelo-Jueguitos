@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>La Palabra del Día</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Polyfill for some WebRTC/Buffer libs that expect global
+      if (typeof global === 'undefined') {
+        window.global = window;
+      }
+      
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              game: {
+                bg: '#121213',
+                tile: '#3a3a3c',
+                tileBorder: '#3a3a3c',
+                tileActive: '#565758',
+                correct: '#538d4e',
+                present: '#b59f3b',
+                absent: '#3a3a3c',
+                key: '#818384',
+              }
+            },
+            animation: {
+              'pop': 'pop 0.1s ease-in-out forwards',
+              'flip': 'flip 0.5s ease-in-out forwards',
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              pop: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '40%': { transform: 'scale(1.1)', opacity: '1' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              flip: {
+                '0%': { transform: 'rotateX(0deg)' },
+                '50%': { transform: 'rotateX(90deg)' },
+                '100%': { transform: 'rotateX(0deg)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #121213;
+        color: white;
+        touch-action: manipulation;
+      }
+      /* Disable double-tap zoom on mobile */
+      button {
+        touch-action: manipulation;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "trystero/torrent": "https://esm.sh/trystero@0.22.0/torrent",
+    "trystero/": "https://esm.sh/trystero@^0.22.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
