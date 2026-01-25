@@ -52,7 +52,7 @@ export async function getWordFromCategory(category: string): Promise<string> {
     return getRandomFallbackWord();
   }
 
-  const ai = new GoogleGenAI({ apiKey });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
 
   try {
     const response = await ai.models.generateContent({
